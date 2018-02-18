@@ -1,8 +1,9 @@
 var textin=["empty","empty","empty","empty","empty","empty","empty","empty","empty"];
 var square=[];
 var myi;
+var x;
 var previous="nothing";
-var prev_caller_id; //to prevent choosing x for example and then changing it to o in the same cell 
+var calledBefore=[0,0,0,0,0,0,0,0,0,0]; //to prevent choosing x for example and then changing it to o in the same cell 
 var player_one={
 
     name:"player one",
@@ -25,39 +26,56 @@ if(previous==="nothing") //initial condition
 {
 textin[this.myi].innerHTML="X";
 previous="X";
-prev_caller_id=this.myi;
-}
-else if(previous==="X"&&prev_caller_id!==this.myi) //if the one before this is x the next will be o then change the previous to be o
-{
-textin[this.myi].innerHTML="O";
-previous="O";
-prev_caller_id=this.myi;
-}
-else if (previous==="O"&&prev_caller_id!==this.myi) //vice versa the above condition
- {
-textin[this.myi].innerHTML="X";
-previous="X";
-prev_caller_id=this.myi;
-
-
-}
-
-compare();
-
 textin[this.myi].style.position="relative";
 textin[this.myi].style.top="35px";
 textin[this.myi].style.fontSize="5em";
 this.style.background="grey";
 this.style.textAlign="center";
 this.style.lineHeight="30px";
+calledBefore[this.myi]=1;
+}
+else if(previous==="X"&&calledBefore[this.myi]!==1) //if the one before this is x the next will be o then change the previous to be o
+{
+textin[this.myi].innerHTML="O";
+previous="O";
+textin[this.myi].style.position="relative";
+textin[this.myi].style.top="35px";
+textin[this.myi].style.fontSize="5em";
+this.style.background="grey";
+this.style.textAlign="center";
+this.style.lineHeight="30px";
+calledBefore[this.myi]=1;
+}
+else if (previous==="O"&&calledBefore[this.myi]!==1) //vice versa the above condition
+ {
+textin[this.myi].innerHTML="X";
+previous="X";
+textin[this.myi].style.position="relative";
+textin[this.myi].style.top="35px";
+textin[this.myi].style.fontSize="5em";
+this.style.background="grey";
+this.style.textAlign="center";
+this.style.lineHeight="30px";
+calledBefore[this.myi]=1;
 
+
+}
+
+compare();
 
 });
 }
 
 function win(){
-textin=["empty","empty","empty","empty","empty","empty","empty","empty","empty"];
-
+document.getElementById("win").innerHTML="You have Winned !";
+//to prevent clicking after winning
+for(var i=0;i<9;i++)
+{
+    if(calledBefore[i]!==1)
+{
+       calledBefore[i]=1;
+}
+}
 
 
 }
@@ -93,3 +111,5 @@ if(textin[2].innerHTML===textin[4].innerHTML&&textin[4].innerHTML===textin[6].in
     }    
 
 }
+
+
