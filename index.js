@@ -64,7 +64,7 @@ for (var i = 0; i < 9; i++) {
 }
 
 function win() {
-    document.getElementById("win").innerHTML = "You have Winned !";
+    document.getElementById("win").innerHTML = "You have won !";
     //to prevent clicking after winning
     for (var i = 0; i < 9; i++) {
         if (calledBefore[i] !== 1) {
@@ -115,7 +115,7 @@ function compare() {
         }
 
     if (detectNoWin() && win !== 1) {
-        document.getElementById("win").innerHTML = "No one have Winned !";
+        document.getElementById("win").innerHTML = "No one have won!";
 
     }
 
