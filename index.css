@@ -43,14 +43,11 @@ top:73%;
 left:28%;
 color: red;
 }
-.format
-{
 
-    position :relative;
-    top:35px;
+#nowin{
     font-size: 5em;
-    background: grey;
-    text-align: center;
-    line-height: 30px;
-
-}
+    position:absolute;
+    top:73%;
+    left:23%;
+    color: red;
+    }
