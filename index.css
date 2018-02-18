@@ -1,0 +1,37 @@
+body{
+
+background-color: #232323;
+
+}
+
+h1 {
+    text-align: center; 
+    color: white; 
+
+}
+
+.square{
+    height: 108px;
+    width :108px;
+    float:left;
+    background: white;
+    border-right: 3px solid #000;
+    border-bottom: 3px solid #000;
+
+    
+}
+.square:nth-child(n+7){
+    border-bottom:none;
+}
+
+.square:nth-child(3n){
+    border-right:none;
+}
+#board {
+    margin :0 auto;
+    margin-left: 38.5%;
+    padding-top: 3%; 
+    max-width: 350px;
+    
+
+}
