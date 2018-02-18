@@ -27,7 +27,7 @@ textin[this.myi].innerHTML="X";
 previous="X";
 prev_caller_id=this.myi;
 }
-else if(previous==="X"&&prev_caller_id!==this.myi) //if the one before this is x choose o then change the previous 
+else if(previous==="X"&&prev_caller_id!==this.myi) //if the one before this is x the next will be o then change the previous to be o
 {
 textin[this.myi].innerHTML="O";
 previous="O";
@@ -63,8 +63,7 @@ textin=["empty","empty","empty","empty","empty","empty","empty","empty","empty"]
 }
 
 function compare (){
-var n=0;
-   // if(textin[0].innerHTML===textin[1].innerHTML===textin[])
+
 for (var i=0;i<9;i=i+3)
 {
     if(textin[i].innerHTML!==undefined)
